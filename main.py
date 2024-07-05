@@ -24,7 +24,7 @@ span_exporter = BatchSpanProcessor(OTLPSpanHttpExporter(
 ))
 provider = TracerProvider(resource=resource)
 
-# provider.add_span_processor(span_exporter)
+provider.add_span_processor(span_exporter)
 provider.add_span_processor(BatchSpanProcessor(ConsoleSpanExporter()))  # 在控制台输出Trace
 trace.set_tracer_provider(provider)
 
